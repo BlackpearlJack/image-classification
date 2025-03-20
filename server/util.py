@@ -91,9 +91,11 @@ def get_b64_test_image_for_lovato():
 if __name__ == '__main__':
     load_saved_artifacts()
     
-    print(classify_image(get_b64_test_image_for_lovato(), None))
+    # print(classify_image(get_b64_test_image_for_lovato(), None))
     
-    print(classify_image(None, "server/test-images/1c309ab9cb3d4841bc2820ec5045cdae.jpg"))
-    print(classify_image(None, "server/test-images/172e758f667241b98a1199c93c181f1b.jpg"))
-    print(classify_image(None, "server/test-images/4fb1d74bc5e60528d5e82d934894c69d.jpg"))
-    print(classify_image(None, "server/test-images/7e6b2009094eb8db7421da90b30bfa3c.jpg"))
+    # print(classify_image(None, "server/test-images/1c309ab9cb3d4841bc2820ec5045cdae.jpg"))
+    # print(classify_image(None, "server/test-images/172e758f667241b98a1199c93c181f1b.jpg"))
+    # print(classify_image(None, "server/test-images/4fb1d74bc5e60528d5e82d934894c69d.jpg"))
+    # print(classify_image(None, "server/test-images/7e6b2009094eb8db7421da90b30bfa3c.jpg"))
+    
+    # print(classify_image(None, "server/test-images/37a42b371dcaa2f4910e8d81f3e3de75.jpg"))

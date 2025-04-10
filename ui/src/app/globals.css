@@ -36,5 +36,6 @@
   --color-accentColor-800: #00331a;
   --color-accentColor-900: #001a0d;
 
-  --shadow-custom-double: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7)Color
+  --shadow-custom-double: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 }
+

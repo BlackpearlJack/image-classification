@@ -11,3 +11,11 @@ export const AppButton = ({ title, link, className, ...props }: ButtonProps) => 
       </a>
     );
   };
+
+export const Navbar = () => {
+  return (
+    <nav className="navbar navbar-light bg-light justify-content-center">
+      <a href="#" className="navbar-brand">Celebrity Person Classifier</a>
+    </nav>
+  )
+}

@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { AppButton } from "./components/common.components";
+// import Image from "next/image";
+// import { AppButton } from "./components/common.components";
 // import chrisPic from "./0c02e3c0d732563b67ce27f6fe7f95ae.jpg";
 // import demiPic from "./1c309ab9cb3d4841bc2820ec5045cdae.jpg";
 

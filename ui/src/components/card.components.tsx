@@ -5,7 +5,7 @@ import Image from "next/image";
 export const PlayerCard: React.FC<Player> = ({ name, image, dataPlayer }) => {
   return (
     <div
-      className="flex flex-col items-center gap-y-3 p-4 bg-gray-100 rounded-lg shadow-lg"
+      className="card items-center p-5 shadow-2xl mt-2.5 shadow-accentColor-500"
       data-player={dataPlayer}
       aria-label={`Player card for ${name}`}
     >

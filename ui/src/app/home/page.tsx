@@ -1,11 +1,25 @@
 'use client';
 
 import Image from 'next/image';
-// import { Button } from '@/components/ui/button';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[#1a1a1a] text-white font-sans flex items-center justify-center px-6">
+    <main className="relative min-h-screen bg-[#1a1a1a] text-white font-sans flex items-center justify-center px-6 overflow-hidden">
+      
+      {/* Full Background (Optional) */}
+      {/* Uncomment below to use the image as background */}
+      {/* 
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/nature-cover.jpg"
+          alt="Background"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+      */}
+
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-10">
         
         {/* Left Section */}
@@ -18,19 +32,16 @@ export default function HomePage() {
             Experience full minimal elegance through the iconic Blvck
             collection, including this matte black tumbler.
           </p>
-          {/* <Button className="bg-orange-500 hover:bg-orange-600 text-black font-bold px-6 py-3 rounded-full mt-4">
-            SHOP NOW
-          </Button> */}
         </div>
 
         {/* Center Image */}
-        <div className="md:w-1/3 relative">
+        <div className="md:w-1/3 relative h-[400px] w-full">
           <Image
-            src="/images/nature-cover.jpg" // Make sure this image is in the public folder
+            src="/images/nature-cover.jpg"
             alt="Nature Cover"
-            width={300}
-            height={500}
+            fill
             className="object-contain"
+            priority
           />
           <div className="absolute -top-8 -right-8 w-16 h-16 border-8 border-orange-500 rounded-full"></div>
         </div>

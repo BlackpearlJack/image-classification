@@ -50,7 +50,7 @@ export const Navbar = () => {
       <div className="navbar-center">
         <Link
           href="/"
-          className="text-2xl sm:text-3xl font-semibold tracking-wide uppercase text-primaryColor-900"
+          className="text-2xl sm:text-3xl font-semibold tracking-wide uppercase"
         >
           N3UROTVG
         </Link>

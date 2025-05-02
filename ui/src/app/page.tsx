@@ -40,7 +40,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col items-center bg-[url('/images/nature-cover.jpg')] bg-cover bg-center bg-no-repeat p-5 min-h-screen">
+    <div className="flex flex-col items-center p-5 min-h-screen">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {players.map((player) => (
           <PlayerCard

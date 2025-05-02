@@ -2,10 +2,10 @@ import { Player } from "@/config/type";
 import Image from "next/image";
 
 // Reusable PlayerCard component
-export const PlayerCard: React.FC<Player> = ({ name, image, dataPlayer }) => {
+export const PlayerCard: React.FC<Player> = ({ name, image, dataPlayer, className }) => {
   return (
     <div
-      className="card items-center p-5 shadow-2xl mt-2.5 shadow-accentColor-500"
+      className={`card items-center p-5 shadow-2xl mt-2.5 shadow-accentColor-500 ${className}`}
       data-player={dataPlayer}
       aria-label={`Player card for ${name}`}
     >

@@ -21,7 +21,7 @@ export default function Home() {
         name={player.name}
         image={player.image}
         dataPlayer={player.dataPlayer}
-        // className="md:w-1/2 lg:w-1/3 xl:w-1/4"
+        className="md:w-1/2 lg:w-1/3 xl:w-1/4"
       />
     ))}
   </div>

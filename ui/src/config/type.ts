@@ -11,4 +11,8 @@ export type Player = {
    * The player's data identifier.
    */
   dataPlayer: string;
+  /**
+   * The className of player card to add styling
+   */
+  className?: string;
 };

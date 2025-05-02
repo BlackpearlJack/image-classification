@@ -1,34 +1,6 @@
-import Image from "next/image";
+import { PlayerCard } from "@/components/card.components";
+import { Player } from "@/config/type";
 import React from "react";
-
-// Define the type for a player
-type Player = {
-  name: string;
-  image: string;
-  dataPlayer: string;
-};
-
-// Reusable PlayerCard component
-const PlayerCard: React.FC<Player> = ({ name, image, dataPlayer }) => {
-  return (
-    <div
-      className="flex flex-col items-center gap-y-3 p-4 bg-gray-100 rounded-lg shadow-lg"
-      data-player={dataPlayer}
-      aria-label={`Player card for ${name}`}
-    >
-      {/* Image */}
-      <Image
-        src={image}
-        alt={name}
-        width={128}
-        height={128}
-        className="w-32 h-32 rounded-full object-cover shadow-md"
-      />
-      {/* Name */}
-      <h5 className="text-lg font-semibold text-gray-800">{name}</h5>
-    </div>
-  );
-};
 
 export default function Home() {
   const players: Player[] = [

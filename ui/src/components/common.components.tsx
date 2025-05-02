@@ -1,39 +1,23 @@
+"use client";
+
 import { FaBell, FaSearch } from "react-icons/fa";
-import { TiThMenu } from "react-icons/ti";
-
-interface ButtonProps {
-  title: string;
-  link: string;
-  className?: string;
-}
-
-export const AppButton = ({
-  title,
-  link,
-  className,
-  ...props
-}: ButtonProps) => {
-  return (
-    <a
-      href={link}
-      className={`bg-primaryColor-500 inline-block py-3 px-6 uppercase text-base md:text-lg rounded-md shadow-2xl shadow-accentColor-500 hover:scale-105 ${className}`}
-      {...props}
-    >
-      {title}
-    </a>
-  );
-};
+import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar glass">
+    <div className="navbar glass px-6 py-2 shadow-md">
+      {/* Start */}
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} className="btn btn-ghost btn-circle">
-            {/* <TiThMenu className="text-black" /> */}
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle"
+            aria-label="Navigation menu"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
+              className="h-5 w-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -45,31 +29,51 @@ export const Navbar = () => {
               />
             </svg>
           </div>
-          <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow glass rounded-box w-52"
+          >
             <li>
-              <a href="" className="">
-                Home
-              </a>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
+              <Link href="/about">About</Link>
+            </li>
+            <li>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
         </div>
       </div>
+
+      {/* Center */}
       <div className="navbar-center">
-        <a href="" className="btn btn-ghost text-xl">
-          CelebrityImageRecognition
-        </a>
+        <Link
+          href="/"
+          className="text-2xl sm:text-3xl font-semibold tracking-wide uppercase text-primaryColor-900"
+        >
+          N3UROTVG
+        </Link>
       </div>
-      <div className="navbar-end">
-        <button className="btn btn-ghost btn-circle">
-          <FaSearch />
+
+      {/* End */}
+      <div className="navbar-end gap-2">
+        <button
+          className="btn btn-ghost btn-circle focus:outline-none focus:ring focus:ring-secondary"
+          aria-label="Search"
+        >
+          <FaSearch className="w-5 h-5" />
         </button>
-        <button className="btn btn-ghost btn-circle">
+        <button
+          className="btn btn-ghost btn-circle focus:outline-none focus:ring focus:ring-secondary"
+          aria-label="Notifications"
+        >
           <div className="indicator">
-            <FaBell />
+            <FaBell className="w-5 h-5" />
             <span className="badge badge-xs badge-primary indicator-item"></span>
           </div>
         </button>
       </div>
-    </nav>
+    </div>
   );
 };

@@ -15,7 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased`}
+        className={`antialiased bg-cover bg-no-repeat bg-center`}
+        style={{ backgroundImage: `url('/images/nature-cover.jpg')` }}
       >
         <Navbar />        
         {children}

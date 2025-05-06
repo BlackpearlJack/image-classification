@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light;
+}
 * {
   box-sizing: border-box;
   margin: 0;

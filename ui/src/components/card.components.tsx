@@ -40,8 +40,8 @@ export const UploadCard = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 min-w-2xl mx-auto bg-base-100 p-6 rounded-xl shadow-2xl shadow-accent">
-      <h2 className="text-lg font-semibold text-primary mb-4">Upload Image</h2>
+    <div className="flex flex-col gap-4 w-full sm:w-3/4 lg:w-1/2 mx-auto bg-base-100 p-4 sm:p-6 rounded-xl shadow-2xl shadow-accent">
+      <h2 className="text-lg font-semibold text-primary mb-4 text-center">Upload Image</h2>
 
       <div className="flex justify-center text-center text-sm text-primary mb-4">
         <div className="flex flex-col items-center gap-2 p-4">
@@ -53,9 +53,9 @@ export const UploadCard = () => {
 
       <label
         htmlFor="file-upload"
-        className="flex flex-col items-center justify-center h-48 border-2 border-dashed border-primary rounded-lg cursor-pointer hover:bg-base-200 text-center mb-4"
+        className="flex flex-col items-center justify-center h-40 sm:h-48 border-2 border-dashed border-primary rounded-lg cursor-pointer hover:bg-base-200 text-center mb-4"
       >
-        <FiUploadCloud className="text-4xl text-neutral mb-2" />
+        <FiUploadCloud className="text-3xl sm:text-4xl text-neutral mb-2" />
         <p className="text-primary">Drag & drop to upload</p>
         <p className="text-primary text-sm underline">or browse</p>
         <input

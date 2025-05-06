@@ -28,21 +28,7 @@ export const Navbar = () => {
                 d="M4 6h16M4 12h16M4 18h7"
               />
             </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow glass rounded-box w-52"
-          >
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            <li>
-              <Link href="/contact">Contact</Link>
-            </li>
-          </ul>
+          </div>          
         </div>
       </div>
 
@@ -70,7 +56,7 @@ export const Navbar = () => {
         >
           <div className="indicator">
             <FaBell className="w-5 h-5" />
-            <span className="badge badge-xs badge-primary indicator-item"></span>
+            <span className="badge badge-xs badge-base-100 rounded-full indicator-item"></span>
           </div>
         </button>
       </div>

@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html data-theme="lester-light" lang="en">
       <body
         className={`antialiased bg-cover bg-no-repeat bg-center`}
         style={{ backgroundImage: `url('/images/nature-cover.jpg')` }}

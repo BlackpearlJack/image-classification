@@ -12,7 +12,8 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col m-auto items-center p-5 min-h-screen gap-5">
+    <div className="flex flex-col m-auto items-center p-5 min-h-screen gap-5 bg-cover bg-no-repeat bg-center
+      bg-[url('/images/nature-cover.jpg')]">
       {/* Image Cards Grid */}
       <div className="w-full md:w-4/5 flex flex-col md:flex-row gap-5 justify-center">
         {players.map((player) => (

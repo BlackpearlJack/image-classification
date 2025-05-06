@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <div className="navbar glass px-6 py-2 shadow-md">
+    <div className="navbar glass px-6 py-2 shadow-md text-primary">
       {/* Start */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -56,7 +56,7 @@ export const Navbar = () => {
         >
           <div className="indicator">
             <FaBell className="w-5 h-5" />
-            <span className="badge badge-xs badge-base-100 rounded-full indicator-item"></span>
+            <span className="badge badge-xs badge-secondary rounded-full indicator-item"></span>
           </div>
         </button>
       </div>

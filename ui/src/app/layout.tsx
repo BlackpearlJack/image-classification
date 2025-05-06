@@ -15,8 +15,7 @@ export default function RootLayout({
   return (
     <html data-theme="lester-light" lang="en">
       <body
-        className={`antialiased bg-cover bg-no-repeat bg-center`}
-        style={{ backgroundImage: `url('/images/nature-cover.jpg')` }}
+        className={`antialiased`}        
       >
         <Navbar />        
         {children}

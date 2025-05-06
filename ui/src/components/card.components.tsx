@@ -34,28 +34,25 @@ export const UploadCard = () => {
   const [file, setFile] = useState<File | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setFile(e.target.files[0]);
-    }
+    const selected = e.target.files?.[0];
+    if (selected) setFile(selected);
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full sm:w-3/4 lg:w-1/2 mx-auto bg-base-100 p-4 sm:p-6 rounded-xl shadow-2xl shadow-accent">
-      <h2 className="text-lg font-semibold text-primary mb-4 text-center">Upload Image</h2>
+    <div className="w-full max-w-xl mx-auto p-6 bg-base-100 rounded-xl shadow-2xl shadow-accent flex flex-col gap-5">
+      <h2 className="text-xl font-semibold text-primary text-center">Upload Image</h2>
 
-      <div className="flex justify-center text-center text-sm text-primary mb-4">
-        <div className="flex flex-col items-center gap-2 p-4">
-          <FaPhotoFilm className="text-4xl text-neutral" />
-          <p className="font-medium">Images</p>
-          <p className="text-xs">PNG, JPG, in-app cropping supported</p>
-        </div>
+      <div className="flex flex-col items-center justify-center">
+        <FaPhotoFilm className="text-4xl mx-auto text-neutral mb-1" />
+        <p className="font-medium text-primary">Images</p>
+        <p className="text-xs text-primary">PNG, JPG</p>
       </div>
 
       <label
         htmlFor="file-upload"
-        className="flex flex-col items-center justify-center h-40 sm:h-48 border-2 border-dashed border-primary rounded-lg cursor-pointer hover:bg-base-200 text-center mb-4"
+        className="border-2 border-dashed border-primary hover:bg-base-200 transition cursor-pointer flex flex-col items-center justify-center text-center h-48 rounded-lg"
       >
-        <FiUploadCloud className="text-3xl sm:text-4xl text-neutral mb-2" />
+        <FiUploadCloud className="text-4xl text-neutral mb-2" />
         <p className="text-primary">Drag & drop to upload</p>
         <p className="text-primary text-sm underline">or browse</p>
         <input
@@ -67,8 +64,8 @@ export const UploadCard = () => {
         />
       </label>
 
-      <div className="flex justify-end mt-4">
-        <button disabled={!file} className={`btn btn-primary ${!file ? "btn-disabled" : ""}`}>
+      <div className="text-right">
+        <button className="btn btn-primary" disabled={!file}>
           Upload
         </button>
       </div>

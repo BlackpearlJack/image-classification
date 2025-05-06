@@ -45,13 +45,13 @@ export const Navbar = () => {
       {/* End */}
       <div className="navbar-end gap-2">
         <button
-          className="btn btn-ghost btn-circle focus:outline-none focus:ring focus:ring-secondary"
+          className="btn btn-ghost btn-circle focus:outline-none"
           aria-label="Search"
         >
           <FaSearch className="w-5 h-5" />
         </button>
         <button
-          className="btn btn-ghost btn-circle focus:outline-none focus:ring focus:ring-secondary"
+          className="btn btn-ghost btn-circle focus:outline-none"
           aria-label="Notifications"
         >
           <div className="indicator">

@@ -1,1 +1,5 @@
 .venv
+haarcascades
+test-images
+*.pyc
+__pycache__

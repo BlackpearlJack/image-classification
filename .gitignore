@@ -1,6 +1,2 @@
-server/myenv
 node_modules
-haarcascades
-test-images
-*.pyc
-__pycache__
+assets-cropped

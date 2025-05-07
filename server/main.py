@@ -18,6 +18,7 @@ app.add_middleware(
 async def classify_image(image_data: str = Form(...)):
     # print(f"Received image data: {image_data}")  # Log the received data
     result = util.classify_image(image_data)
+    print(f"Classification result: {result}")
     return JSONResponse(content=result)
 
 @app.on_event("startup")

@@ -34,7 +34,7 @@ export const PlayerCard: React.FC<Player> = ({ name, image, dataPlayer, classNam
 };
 
 // UploadCard component for uploading images
-export const UploadCard = ({ onClassify }: { onClassify: (result: Results) => void }) => {
+export const UploadCard: React.FC<{ onClassify: (result: Results) => void }> = ({ onClassify }) => {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [alert, setAlert] = useState<{
@@ -61,18 +61,20 @@ export const UploadCard = ({ onClassify }: { onClassify: (result: Results) => vo
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
     if (file) {
       setAlert({ message: "Classifying image...", type: "info" });
+      e.preventDefault(); // Prevent default form submission
+
+      // Call the classifyImage function to classify the image
       try {
-        const result = await classifyImage(file); // Call the classifyImage function
+        const result = await classifyImage(file);
+        // console.log("Classification result:", result); // Log the classification result
         setAlert({ message: "Image classified successfully!", type: "success" });
         onClassify(result); // Pass the result to the parent component
-      } catch (error) {
-        setAlert({ message: "Failed to classify image. Please try again.", type: "error" });
       }
-    } else {
-      setAlert({ message: "Please select a file to upload.", type: "error" });
+      catch (error) {
+        setAlert({ message: "Failed to classify image. Please try again.", type: "error" });
+      }      
     }
   };
 
@@ -142,7 +144,13 @@ export const ResultsCard = ({ image, message, onBack }: Results) => {
       <div className="flex items-center justify-center rounded-full">
         {/* image of the identified player or celebrity */}
         <Image
-          src={image ? image : "/images/photo_1.jpg"}
+          src={
+            typeof image === "string"
+              ? image
+              : image
+              ? URL.createObjectURL(image)
+              : "/images/photo_1.jpg"
+          }
           alt="Result"
           width={128}
           height={128}
@@ -161,5 +169,5 @@ export const ResultsCard = ({ image, message, onBack }: Results) => {
         Back to Upload
       </button>
     </div>
-  );
+  )
 };

@@ -1,6 +1,7 @@
 "use client";
 import { PlayerCard, UploadCard, ResultsCard } from "@/components/card.components";
-import { Player } from "@/config/type";
+import { Player, Results } from "@/config/type";
+import { classifyImage } from "@/util/service"; // Import the classifyImage function
 import React, { useState } from "react";
 
 export default function Home() {
@@ -15,13 +16,8 @@ export default function Home() {
   const [showResults, setShowResults] = useState(false); // State to toggle between UploadCard and ResultsCard
   const [resultData, setResultData] = useState<{ image: string; message: string } | null>(null); // State to hold result data
 
-  const handleClassify = (file: File) => {
-    // Simulate classification logic
-    const mockResult = {
-      image: URL.createObjectURL(file), // Use the uploaded file as the result image
-      message: "Classification successful! This is a mock result.",
-    };
-    setResultData(mockResult);
+  const handleClassify = (result: { image: string; message: string }) => {
+    setResultData(result); // Set the result data
     setShowResults(true); // Show the ResultsCard
   };
 
@@ -33,7 +29,7 @@ export default function Home() {
   return (
     <div
       className="flex flex-col m-auto items-center p-5 min-h-screen gap-5 bg-cover bg-no-repeat bg-center
-      bg-[url('/images/nature-cover.jpg')]"
+    bg-[url('/images/nature-cover.jpg')]"
     >
       {/* Image Cards Grid */}
       <div className="w-full md:w-4/5 flex flex-col md:flex-row gap-5 justify-center">
@@ -51,8 +47,8 @@ export default function Home() {
       {/* Conditional Rendering for UploadCard or ResultsCard */}
       {showResults && resultData ? (
         <ResultsCard
-          image={resultData.image}
-          message={resultData.message}
+          image={resultData.image} // Pass the image path
+          message={resultData.message} // Pass the classification message
           onBack={handleBack} // Pass the back handler
         />
       ) : (

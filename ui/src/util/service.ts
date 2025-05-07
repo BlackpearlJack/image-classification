@@ -58,7 +58,7 @@ export async function classifyImage(image: File): Promise<Results> {
 
     return {
       image: imagePath, // Use the temporary image path for preview
-      message: `Identified player: ${name}`, // Return the identified class as the message
+      message: `The celebrity is: ${name}`, // Return the identified class as the message
     };
   } catch (error) {
     console.error("Error classifying image:", error);

@@ -6,6 +6,7 @@ import { FaPhotoFilm } from "react-icons/fa6";
 import { FiUploadCloud } from "react-icons/fi";
 import { IoCloseCircle } from "react-icons/io5";
 import { Alert } from "./common.components";
+import { classifyImage } from "@/util/service";
 
 // Reusable PlayerCard component
 export const PlayerCard: React.FC<Player> = ({ name, image, dataPlayer, className }) => {
@@ -33,7 +34,7 @@ export const PlayerCard: React.FC<Player> = ({ name, image, dataPlayer, classNam
 };
 
 // UploadCard component for uploading images
-export const UploadCard = ({ onClassify }: { onClassify: (file: File) => void }) => {
+export const UploadCard = ({ onClassify }: { onClassify: (result: Results) => void }) => {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [alert, setAlert] = useState<{
@@ -45,6 +46,8 @@ export const UploadCard = ({ onClassify }: { onClassify: (file: File) => void })
     const selected = e.target.files?.[0];
     if (selected && selected.type.startsWith("image/")) {
       setFile(selected);
+      const objectUrl = URL.createObjectURL(selected);
+      setPreview(objectUrl); // Set preview for the selected file
     } else {
       setFile(null);
       setPreview(null);
@@ -57,22 +60,21 @@ export const UploadCard = ({ onClassify }: { onClassify: (file: File) => void })
     setPreview(null);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (file) {
-      setAlert({ message: "File submitted successfully!", type: "success" });
-      onClassify(file); // Pass the file to the parent component for classification
+      setAlert({ message: "Classifying image...", type: "info" });
+      try {
+        const result = await classifyImage(file); // Call the classifyImage function
+        setAlert({ message: "Image classified successfully!", type: "success" });
+        onClassify(result); // Pass the result to the parent component
+      } catch (error) {
+        setAlert({ message: "Failed to classify image. Please try again.", type: "error" });
+      }
     } else {
       setAlert({ message: "Please select a file to upload.", type: "error" });
     }
   };
-
-  useEffect(() => {
-    if (!file) return setPreview(null);
-    const objectUrl = URL.createObjectURL(file);
-    setPreview(objectUrl);
-    return () => URL.revokeObjectURL(objectUrl);
-  }, [file]);
 
   return (
     <>

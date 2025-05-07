@@ -8,7 +8,7 @@ app = FastAPI()
 # Optional: CORS middleware (handles Access-Control-Allow-Origin)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # allow all origins
+    allow_origins=["*"],  # Allow all origins
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -16,6 +16,7 @@ app.add_middleware(
 
 @app.post("/classify_image")
 async def classify_image(image_data: str = Form(...)):
+    # print(f"Received image data: {image_data}")  # Log the received data
     result = util.classify_image(image_data)
     return JSONResponse(content=result)
 
